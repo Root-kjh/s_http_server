@@ -1,5 +1,6 @@
 from .request import Request
 import socket
+import json 
 
 class Runserver():
     def do(self, request):
@@ -14,9 +15,7 @@ class Runserver():
                 try:
                     client_socket, addr = server_socket.accept()
                     data = client_socket.recv(1024)
-                    request = Request(data.decode(), addr[0])
-                    print(self.do(request))
-                    print(str(self.do(request)).encode())
+                    request = Request(json.loads(data.decode()), addr[0])
                     client_socket.send(str(self.do(request)).encode())
                     client_socket.close()
                 except KeyboardInterrupt:
