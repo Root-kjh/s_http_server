@@ -22,6 +22,8 @@ if __name__ == '__main__':
 
 just extend Runserver class, and overwrite do method(do method return response class)
 
+request parameter is dict type(json string autotype casting to dict)
+
 ## Usage Response class
 
 class response method with response, status_code paramters
